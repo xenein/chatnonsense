@@ -6,6 +6,7 @@ we snag some twitchchat via websocket/irc and put things in some csv
 import twitchio
 
 import csv
+import threading
 import tomllib
 
 from threading import Lock
@@ -74,7 +75,10 @@ class Client(twitchio.Client):
             mod=role,
         )
 
-        self.writer.write_message(serialized_message)
+        thread = threading.Thread(
+            target=self.writer.write_message, args=(serialized_message,)
+        )
+        thread.start()
 
     async def event_ready(self):
         print(f"Logged in as: {self.nick}")
