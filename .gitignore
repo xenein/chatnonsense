@@ -131,3 +131,5 @@ dmypy.json
 # prject files
 config.toml
 .DS_STORE
+
+chatlog.csv
