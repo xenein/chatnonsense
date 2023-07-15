@@ -1,0 +1,8 @@
+[Twitch]
+# get your twitch token at: https://twitchtokengenerator.com/ -> Bot Chat Token
+ACCESS_TOKEN="werueioriewo"
+CHANNEL="myTwitchChannel"
+
+[Local]
+CSV_FILE="./chatlog.csv"
+
