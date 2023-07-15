@@ -6,15 +6,14 @@ we snag some twitchchat via websocket/irc and put things in some csv
 import twitchio
 
 import csv
+import dataclasses
 import threading
 import tomllib
 
-from threading import Lock
-from dataclasses import dataclass, astuple
 from datetime import datetime
 
 
-@dataclass
+@dataclasses.dataclass
 class serializedMessage:
     timestamp: datetime
     mod: str
@@ -29,18 +28,17 @@ class Writer:
     """
 
     def __init__(self, path):
-        self.write_lock = Lock()
+        self.write_lock = threading.Lock()
         self.file_path = path
 
     def write_message(self, message: serializedMessage):
         with self.write_lock:
             with open(self.file_path, "a") as fp:
                 csv_writer = csv.writer(fp)
-                csv_writer.writerow(astuple(message))
+                csv_writer.writerow(dataclasses.astuple(message))
 
 
 class Client(twitchio.Client):
-    message_prefix: str
 
     def __init__(
         self, log_csv: str, twitch_token: str, channel: str, chatty: bool = False
