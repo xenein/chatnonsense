@@ -1,5 +1,6 @@
 # requestnonsense
 because sometimes you need all the chat all the time
+
 ## get started
 
 1. git clone
@@ -10,5 +11,25 @@ because sometimes you need all the chat all the time
 6. get twitch chat bot token via https://twitchtokengenerator.com/
 7.  `python chatlognonsense.py`
 
-## hm
+## csv-format
 
+the output-format is quite simple. after all, it's basically irc-logging. 
+
+<timestamp>, <user-role>, <user>, <message>
+
+### timestamp
+
+it's the default str() for `datetime.datetime`. Given in UTC.
+
+### user-role
+
+currently:
+- moderator: 🗡️
+- broadcaster: 🎥
+- subscriber: 💸
+- viewer: 👁️
+
+### todo
+
+- maybe add other output-modules: SQL, JSON, …
+- find out how long tokens last and how to renew
