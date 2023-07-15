@@ -32,4 +32,5 @@ currently:
 ### todo
 
 - maybe add other output-modules: SQL, JSON, …
-- find out how long tokens last and how to renew
+- stop using ttg and do things _right_
+- have a mechanism to refresh tokens in time
