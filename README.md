@@ -15,7 +15,7 @@ because sometimes you need all the chat all the time
 
 the output-format is quite simple. after all, it's basically irc-logging. 
 
-<timestamp>, <user-role>, <user>, <message>
+`<timestamp>, <user-role>, <user>, <message>`
 
 ### timestamp
 
