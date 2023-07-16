@@ -32,5 +32,5 @@ currently:
 ### todo
 
 - maybe add other output-modules: SQL, JSON, …
-- stop using ttg and do things _right_
+- stop using ttg and do things _right_ -> https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#client-credentials-grant-flow
 - have a mechanism to refresh tokens in time
