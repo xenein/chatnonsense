@@ -1,8 +1,11 @@
 [Twitch]
 # get your twitch token at: https://twitchtokengenerator.com/ -> Bot Chat Token
-ACCESS_TOKEN="werueioriewo"
-CHANNEL="myTwitchChannel"
+ACCESS_TOKEN = "werueioriewo"
+CHANNEL = "myTwitchChannel"
+# register your own with twitch and get client id and client secret
+client_id = "…"
+client_secret = ":"
+
 
 [Local]
-CSV_FILE="./chatlog.csv"
-
+CSV_FILE = "./chatlog.csv"
