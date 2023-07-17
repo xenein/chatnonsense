@@ -58,6 +58,8 @@ class Client(twitchio.Client):
             role = "🎥"
         elif message.tags.get("subscriber"):
             role = "💸"
+        elif "vip" in str(message.tags.get("badges")):
+            role = "💎"
         else:
             role = "👁️"
 
