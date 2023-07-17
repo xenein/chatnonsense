@@ -41,11 +41,12 @@ class Writer:
 class Client(twitchio.Client):
 
     def __init__(
-        self, log_csv: str, twitch_token: str, channel: str, chatty: bool = False
+        self, log_csv: str, token: str, client_id: str, client_secret: str, channel: str, chatty: bool = False
     ):
         super().__init__(
-            token=twitch_token,
-            initial_channels=[channel],
+            token=token,
+            client_secret=client_secret,
+            initial_channels=[channel]
         )
         self.chatty = chatty
         self.writer = Writer(log_csv)
@@ -91,7 +92,9 @@ if __name__ == "__main__":
 
     client = Client(
         log_csv=config["csv"]["log_csv"],
-        twitch_token=config["Twitch"]["ACCESS_TOKEN"],
+        token=config["Twitch"]["ACCESS_TOKEN"],
+        client_id=config["Twitch"]["client_id"],
+        client_secret=config["Twitch"]["client_secret"],
         channel=config["Twitch"]["CHANNEL"],
         chatty=True,
     )
