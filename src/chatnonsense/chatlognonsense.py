@@ -39,19 +39,26 @@ class Writer:
 
 
 class Client(twitchio.Client):
-
     def __init__(
-        self, log_csv: str, token: str, client_id: str, client_secret: str, channel: str, chatty: bool = False
+        self,
+        log_csv: str,
+        token: str,
+        client_id: str,
+        client_secret: str,
+        channel: str,
+        chatty: bool = False,
     ):
         super().__init__(
-            token=token,
-            client_secret=client_secret,
-            initial_channels=[channel]
+            token=token, client_secret=client_secret, initial_channels=[channel]
         )
         self.chatty = chatty
         self.writer = Writer(log_csv)
 
     async def event_message(self, message: twitchio.Message):
+
+        if type(message.author) == twitchio.PartialChatter:
+            return
+
         role: str
         if message.author.is_mod:
             role = "🗡️"
